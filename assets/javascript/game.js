@@ -32,3 +32,5 @@ var venom = {
   baseAttack: 25,
   attack: 25
 };
+
+fuction initializeFighter(selectedFighter)
