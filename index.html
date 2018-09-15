@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Spider-Man RPG</title>
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <img src="assets/images/banner.png" alt="Spider-Man Banner" />
+        <h1 id="selectFighter">SELECT YOUR FIGHTER!</h1>
+        <div class="row" id="fighterRow">
+            <div class="col-md-3">
+                <img src="assets/images/symbiote.png" alt="Sybiote Suit" id="symbioteImage">
+                <h3>Symbiote Suit</h3>
+                <h3 class="health">120</h3>
+            </div>
+            <div class="col-md-3">
+                <img src="assets/images/spiderman.png" alt="Spider-Man" id="spidermanImage">
+                <h3>Spider-Man</h3>
+                <h3 class="health">100</h3>
+            </div>
+            <div class="col-md-3">
+                <img src="assets/images/carnage.png" alt="Carnage" id="carnageImage">
+                <h3>Carnage</h3>
+                <h3 class="health">150</h3>
+            </div>
+            <div class="col-md-3">
+                <img src="assets/images/venom.png" alt="Venom" id="venomImage">
+                <h3>Venom</h3>
+                <h3 class="health">180</h3>
+            </div>
+        </div>
+        <div class="row" id="gameplayRow">
+            <div class="col-md-4" id="fighter">
+                <h2>Your Fighter</h2>
+            </div>
+            <div class="col-md-4" id="attack">
+                <h2>Press to Attack</h2>
+                <button id="attackButton">
+                    <img src="assets/images/attack.png" alt="Attack">
+                </button>
+            </div>
+            <div class="col-md-4" id="enemy">
+                <h2>Enemy</h2>
+            </div>
+        </div>
+        <div class="row" id="messageRow">
+            <div class="col-md-12" id="gameMessage"></div>
+        </div>
+        <div class="row" id="restartRow">
+            <div class="col-md-12">
+                <button class="btn btn-dark" id="restart">Restart</button>
+            </div>
+        </div>
+        <div class="row" id="enemyRow">
+            <div class="col-md-12" id="enemySelect">
+                <h2>SELECT ENEMY!</h2>
+            </div>
+        </div>
+    </div>
+    <script src="assets/javascript/game.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</body>
+
+</html>
