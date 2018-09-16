@@ -5,6 +5,10 @@ var fighter = {};
 var enemy = {};
 gameOver = false;
 
+var attackSound = new Audio("assets/sounds/attack.wav");
+var winSound = new Audio("assets/sounds/youwin.wav");
+var loseSound = new Audio("assets/sounds/gameover.wav");
+
 var symbiote = {
   name: "Symbiote",
   health: 120,
@@ -194,7 +198,7 @@ $(document).ready(function() {
 
   $("#attack").on("click", function() {
     console.log("Attack hit");
-
+    attackSound.play();
     if (fighterSelected && enemySelected && !gameOver) {
       enemy.health = enemy.health - fighter.attack;
       $(".enemyCharacter")
@@ -230,6 +234,7 @@ $(document).ready(function() {
           gameOver = true;
           $("#gameMessage").html("GAME OVER!<br>Press Restart to Play Again");
           $("#restart").show();
+          loseSound.play();
         }
       } else {
         enemiesDefeated++;
@@ -247,6 +252,7 @@ $(document).ready(function() {
           $("#gameMessage").html("YOU WIN!<br>Press Restart to Play Again");
           $("#restart").show();
           $("#selectEnemy").hide();
+          winSound.play();
         }
       }
     } else if (!fighterSelected && !gameOver) {
