@@ -72,6 +72,7 @@ function resetGame() {
     .addClass("availableFighter");
   var available = $(".availableFighter").show();
   $("#fighterRow").html(available);
+  $("#selectFighter").show();
   $("#gameMessage").empty();
   $("#restart").hide();
   fighterSelected = false;
@@ -224,8 +225,37 @@ $(document).ready(function() {
               enemy.baseAttack +
               " damage."
           );
+        } else {
+          gameOver = true;
+          $("#gameMessage").html("GAME OVER!<br>Press Restart to Play Again");
+          $("#restart").show();
+        }
+      } else {
+        enemiesDefeated++;
+        enemySelected = false;
+        $("#gameMessage").html(
+          fighter.name +
+            " defeated " +
+            enemy.name +
+            "<br> Choose another Enemy."
+        );
+        $(".enemyCharacter").hide();
+
+        if (enemiesDefeated === 3) {
+          gameOver = true;
+          $("#gameMessage").html("YOU WIN!<br>Press Restart to Play Again");
+          $("#restart").show();
         }
       }
+    } else if (!fighterSelected && !gameOver) {
+      $("#gameMessage").html("Select fighter before attacking!");
+    } else if (!enemySelected && !gameOver) {
+      $("#gameMessage").html("Select enemy before attacking!");
     }
+  });
+
+  $("#restart").on("click", function() {
+    console.log("Restart selected");
+    resetGame();
   });
 });
