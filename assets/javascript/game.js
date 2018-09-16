@@ -50,7 +50,7 @@ function initializeEnemy(selectedEnemy) {
 function moveEnemies() {
   $(".availableFighter")
     .removeClass("availableFighter")
-    .addClass("availableEnemies");
+    .addClass("col-md-4 availableEnemies");
   $("#enemyRow").append($(".availableEnemies"));
 }
 
@@ -68,11 +68,12 @@ function resetGame() {
     .children(".health")
     .html(venom.health);
   $(".character")
-    .removeClass("fighter availableEnemies enemyCharacter")
-    .addClass("availableFighter");
+    .removeClass("col-md-4 fighter availableEnemies enemyCharacter")
+    .addClass("col-md-3 availableFighter");
   var available = $(".availableFighter").show();
   $("#fighterRow").html(available);
   $("#selectFighter").show();
+  $("#selectEnemy").hide();
   $("#gameMessage").empty();
   $("#restart").hide();
   fighterSelected = false;
@@ -106,7 +107,7 @@ $(document).ready(function() {
         initializeEnemy(symbiote);
         enemySelected = true;
         $("#symbioteImage")
-          .removeClass("col-md-3 availableEnemies")
+          .removeClass("col-md-3 col-md-4 availableEnemies")
           .addClass("enemyCharacter");
         $("#enemy").append(this);
       }
@@ -132,7 +133,7 @@ $(document).ready(function() {
         initializeEnemy(spiderman);
         enemySelected = true;
         $("#spidermanImage")
-          .removeClass("col-md-3 availableEnemies")
+          .removeClass("col-md-3 col-md-4 availableEnemies")
           .addClass("enemyCharacter");
         $("#enemy").append(this);
       }
@@ -158,7 +159,7 @@ $(document).ready(function() {
         initializeEnemy(carnage);
         enemySelected = true;
         $("#carnageImage")
-          .removeClass("col-md-3 availableEnemies")
+          .removeClass("col-md-3 col-md-4  availableEnemies")
           .addClass("enemyCharacter");
         $("#enemy").append(this);
       }
@@ -184,7 +185,7 @@ $(document).ready(function() {
         initializeEnemy(venom);
         enemySelected = true;
         $("#venomImage")
-          .removeClass("col-md-3 availableEnemies")
+          .removeClass("col-md-3 col-md-4 availableEnemies")
           .addClass("enemyCharacter");
         $("#enemy").append(this);
       }
@@ -245,6 +246,7 @@ $(document).ready(function() {
           gameOver = true;
           $("#gameMessage").html("YOU WIN!<br>Press Restart to Play Again");
           $("#restart").show();
+          $("#selectEnemy").hide();
         }
       }
     } else if (!fighterSelected && !gameOver) {
