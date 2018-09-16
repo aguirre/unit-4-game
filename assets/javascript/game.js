@@ -6,7 +6,7 @@ var enemy = {};
 gameOver = false;
 
 var symbiote = {
-  name: "Symbiote Suit",
+  name: "Symbiote",
   health: 120,
   baseAttack: 8,
   attack: 8
@@ -87,7 +87,7 @@ $(document).ready(function() {
   $("#selectEnemy").hide();
 
   $("#symbioteImage").on("click", function() {
-    console.log("Symbiote Suit has been selected");
+    console.log("Symbiote has been selected");
     if (fighterSelected == false) {
       $("#gameMessage").empty();
       initializeFighter(symbiote);
@@ -186,6 +186,45 @@ $(document).ready(function() {
           .removeClass("col-md-3 availableEnemies")
           .addClass("enemyCharacter");
         $("#enemy").append(this);
+      }
+    }
+  });
+
+  $("#attack").on("click", function() {
+    console.log("Attack hit");
+
+    if (fighterSelected && enemySelected && !gameOver) {
+      enemy.health = enemy.health - fighter.attack;
+      $(".enemyCharacter")
+        .children(".health")
+        .html(enemy.health);
+      $("#gameMessage").html(
+        fighter.name +
+          " attacked " +
+          enemy.name +
+          " for " +
+          fighter.attack +
+          " damage.<br>"
+      );
+
+      fighter.attack = fighter.attack + fighter.baseAttack;
+
+      if (enemy.health > 0) {
+        fighter.health = fighter.health - enemy.baseAttack;
+        $(".fighter")
+          .children(".health")
+          .html(fighter.health);
+
+        if (fighter.health > 0) {
+          $("#gameMessage").append(
+            enemy.name +
+              " attacked " +
+              fighter.name +
+              " for " +
+              enemy.baseAttack +
+              " damage."
+          );
+        }
       }
     }
   });
