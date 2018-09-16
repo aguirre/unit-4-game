@@ -14,9 +14,3 @@ body {
   outline: none;
   cursor: pointer;
 }
-#gameplayRow,
-#messageRow,
-#restartRow,
-#enemyRow {
-  display: none;
-}

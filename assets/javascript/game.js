@@ -47,7 +47,7 @@ function initializeEnemy(selectedEnemy) {
   enemy.attack = selectedEnemy.attack;
 }
 
-function moveEnemy() {
+function moveEnemies() {
   $(".availableFighter")
     .removeClass("availableFighter")
     .addClass("availableEnemies");
@@ -73,11 +73,7 @@ function resetGame() {
   var available = $(".availableFighter").show();
   $("#fighterRow").html(available);
   $("#gameMessage").empty();
-  $("#fighterRow").show();
-  $("#gameplayRow").hide();
-  $("#messageRow").hide();
-  $("#restartRow").hide();
-  $("#enemyRow").hide();
+  $("#restart").hide();
   fighterSelected = false;
   enemySelected = false;
   enemiesDefeated = 0;
@@ -87,12 +83,110 @@ function resetGame() {
 }
 
 $(document).ready(function() {
+  $("#restart").hide();
+  $("#selectEnemy").hide();
+
   $("#symbioteImage").on("click", function() {
     console.log("Symbiote Suit has been selected");
     if (fighterSelected == false) {
       $("#gameMessage").empty();
       initializeFighter(symbiote);
       fighterSelected = true;
+      $("#symbioteImage")
+        .removeClass("col-md-3 availableFighter")
+        .addClass("fighter");
+      $("#fighter").append(this);
+      moveEnemies();
+      $("#selectEnemy").show();
+      $("#selectFighter").hide();
+    } else if (fighterSelected == true && enemySelected == false) {
+      if ($("#symbioteImage").hasClass("availableEnemies")) {
+        $("#gameMessage").empty();
+        initializeEnemy(symbiote);
+        enemySelected = true;
+        $("#symbioteImage")
+          .removeClass("col-md-3 availableEnemies")
+          .addClass("enemyCharacter");
+        $("#enemy").append(this);
+      }
+    }
+  });
+
+  $("#spidermanImage").on("click", function() {
+    console.log("Spider-Man has been selected");
+    if (fighterSelected == false) {
+      $("#gameMessage").empty();
+      initializeFighter(spiderman);
+      fighterSelected = true;
+      $("#spidermanImage")
+        .removeClass("col-md-3 availableFighter")
+        .addClass("fighter");
+      $("#fighter").append(this);
+      moveEnemies();
+      $("#selectEnemy").show();
+      $("#selectFighter").hide();
+    } else if (fighterSelected == true && enemySelected == false) {
+      if ($("#spidermanImage").hasClass("availableEnemies")) {
+        $("#gameMessage").empty();
+        initializeEnemy(spiderman);
+        enemySelected = true;
+        $("#spidermanImage")
+          .removeClass("col-md-3 availableEnemies")
+          .addClass("enemyCharacter");
+        $("#enemy").append(this);
+      }
+    }
+  });
+
+  $("#carnageImage").on("click", function() {
+    console.log("Carnage has been selected");
+    if (fighterSelected == false) {
+      $("#gameMessage").empty();
+      initializeFighter(carnage);
+      fighterSelected = true;
+      $("#carnageImage")
+        .removeClass("col-md-3 availableFighter")
+        .addClass("fighter");
+      $("#fighter").append(this);
+      moveEnemies();
+      $("#selectEnemy").show();
+      $("#selectFighter").hide();
+    } else if (fighterSelected == true && enemySelected == false) {
+      if ($("#carnageImage").hasClass("availableEnemies")) {
+        $("#gameMessage").empty();
+        initializeEnemy(carnage);
+        enemySelected = true;
+        $("#carnageImage")
+          .removeClass("col-md-3 availableEnemies")
+          .addClass("enemyCharacter");
+        $("#enemy").append(this);
+      }
+    }
+  });
+
+  $("#venomImage").on("click", function() {
+    console.log("Venom has been selected");
+    if (fighterSelected == false) {
+      $("#gameMessage").empty();
+      initializeFighter(venom);
+      fighterSelected = true;
+      $("#venomImage")
+        .removeClass("col-md-3 availableFighter")
+        .addClass("fighter");
+      $("#fighter").append(this);
+      moveEnemies();
+      $("#selectEnemy").show();
+      $("#selectFighter").hide();
+    } else if (fighterSelected == true && enemySelected == false) {
+      if ($("#venomImage").hasClass("availableEnemies")) {
+        $("#gameMessage").empty();
+        initializeEnemy(venom);
+        enemySelected = true;
+        $("#venomImage")
+          .removeClass("col-md-3 availableEnemies")
+          .addClass("enemyCharacter");
+        $("#enemy").append(this);
+      }
     }
   });
 });
