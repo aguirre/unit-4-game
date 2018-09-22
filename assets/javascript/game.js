@@ -77,6 +77,7 @@ function resetGame() {
   var available = $(".availableFighter").show();
   $("#fighterRow").html(available);
   $("#selectFighter").show();
+  $("#gameplayRow").hide();
   $("#selectEnemy").hide();
   $("#gameMessage").empty();
   $("#restart").hide();
@@ -90,6 +91,7 @@ function resetGame() {
 
 $(document).ready(function() {
   $("#restart").hide();
+  $("#gameplayRow").hide();
   $("#selectEnemy").hide();
 
   $("#symbioteImage").on("click", function() {
@@ -103,6 +105,7 @@ $(document).ready(function() {
         .addClass("fighter");
       $("#fighter").append(this);
       moveEnemies();
+      $("#gameplayRow").show();
       $("#selectEnemy").show();
       $("#selectFighter").hide();
     } else if (fighterSelected == true && enemySelected == false) {
@@ -129,6 +132,7 @@ $(document).ready(function() {
         .addClass("fighter");
       $("#fighter").append(this);
       moveEnemies();
+      $("#gameplayRow").show();
       $("#selectEnemy").show();
       $("#selectFighter").hide();
     } else if (fighterSelected == true && enemySelected == false) {
@@ -155,6 +159,7 @@ $(document).ready(function() {
         .addClass("fighter");
       $("#fighter").append(this);
       moveEnemies();
+      $("#gameplayRow").show();
       $("#selectEnemy").show();
       $("#selectFighter").hide();
     } else if (fighterSelected == true && enemySelected == false) {
@@ -181,6 +186,7 @@ $(document).ready(function() {
         .addClass("fighter");
       $("#fighter").append(this);
       moveEnemies();
+      $("#gameplayRow").show();
       $("#selectEnemy").show();
       $("#selectFighter").hide();
     } else if (fighterSelected == true && enemySelected == false) {
