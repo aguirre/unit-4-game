@@ -7,4 +7,4 @@ If you do not defeat the enemy game over.<br>
 If you do defeat enemy you will be able to select another enemy.<br>
 If you defeat all enemies you win!<br>
 <br>
-<a href="https://maguirre13.github.io/unit-4-game">Link to Game</a>
+<a href="https://aguirre.github.io/unit-4-game">Link to Game</a>
